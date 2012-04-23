@@ -1,0 +1,13 @@
+auto: true
+server: true
+lsi: true
+
+pygments: true
+markdown: redcarpet2
+permalink: pretty
+
+include: [.htaccess]
+
+redcarpet:
+    extensions: ['no_intra_emphasis', 'fenced_code_blocks', 'autolink',
+        'strikethrough', 'superscript', 'with_toc_data', 'tables', 'hardwrap']
