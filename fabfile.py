@@ -1,4 +1,4 @@
-from fabric import *
+from fabric.api import *
 
 env.hosts = ['thedevel.webfactional.com']
 
