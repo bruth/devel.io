@@ -33,6 +33,9 @@ class Redcarpet2Markdown < Redcarpet::Render::HTML
 end
 
 class Jekyll::MarkdownConverter
+  safe true
+  priority :low
+
   def extensions
     Hash[ *@config['redcarpet']['extensions'].map {|e| [e.to_sym, true] }.flatten ]
   end
