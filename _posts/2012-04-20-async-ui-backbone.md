@@ -7,12 +7,6 @@ title: Async UIs with Backbone
 
 _TODO implement logic for having separate queues for different endpoints. This enables passing the `greedy` option for not wait for the whole queue, but rather simply wait for it's own queue to finish._
 
-```javascript
-function hello(name) {
-    console.log('hello ' + name);
-}
-```
-
 ```coffeescript
 # Override `Backbone.ajax` to queue all requests.
 # Cache Backbone ajax function, by default, just $.ajax
