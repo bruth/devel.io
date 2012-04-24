@@ -3,11 +3,11 @@
 body {
     padding: 50px;
     font: 16px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #777;
-    line-height: 22px;
+    color: #555;
     font-weight: 300;
-    background-color: #f9f9f9;
-    text-shadow: 0 1px 1px #fff;
+    line-height: 25px;
+    background: #f9f9f9 url(../img/furley.png);
+    text-shadow: 0 1px 2px #fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -64,7 +64,18 @@ blockquote {
 code, pre {
     font-family: Menlo, Monaco, Bitstream Vera Sans Mono, Lucida Console;
     color: #333;
+}
+
+.highlight code {
     font-size: 12px;
+}
+
+code {
+    font-size: 14px;
+}
+
+h2 code {
+    font-size: 1em;
 }
 
 pre {
@@ -105,9 +116,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    color: #999;
     text-align: right;
-    background-color: rgba(249, 249, 249, 0.7);
 }
 
 strong {
@@ -129,8 +138,6 @@ hr {
 footer {
     text-align: center;
     font-size: 14px;
-    padding-top: 10px;
-    border-top: 1px dotted #ddd;
 }
 
 @media print, screen and (max-width: 720px) {
