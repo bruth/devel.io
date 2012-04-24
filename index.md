@@ -4,6 +4,8 @@ layout: default
 
 {% for post in site.posts limit:1 %}
 ## Latest: [{{ post.title }}]({{ post.url }})
+
+{{ post.content | truncatehtml:200 }}
 {% endfor %}
 
 {% for post in site.posts %}- _{{ post.date | date_to_string }}_ - [{{ post.title }}]({{ post.url }})

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Client-side App "Environment"
+title: Client-side App Environment
 ---
 
 Setting up the base environment for a client-side Web app may make or break your development process. There are a plethora of great client-side libraries, when they be full frameworks, _micro-libs_, or anything in between. Although each library in your stack may be great at what it does, attempting to bundle the libraries together and make them work fluidly can be a non-trivial task.
