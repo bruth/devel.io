@@ -45,6 +45,7 @@ This is very prone to error and takes up quite a bit of time to process for any 
 Tabular data should be grouped. For each column that is used for the grouping, it should be removed from the table.
 
 **Grouped by `a`**
+
 ```
 	b	c	d	e
 	-	-	-	-
@@ -58,6 +59,7 @@ Tabular data should be grouped. For each column that is used for the grouping, i
 ```
 
 **Grouped by `c`**
+
 ```
 	a	b	d	e
 	-	-	-	-
@@ -70,6 +72,7 @@ Tabular data should be grouped. For each column that is used for the grouping, i
 ```
 
 **Grouped by `c` and `d`**
+
 ```
 		a	b	e
 		-	-	-
