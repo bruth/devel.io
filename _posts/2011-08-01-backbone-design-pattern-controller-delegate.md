@@ -17,6 +17,7 @@ All that aside, there is a higher purpose a collection can serve and how we can 
 Keeping a pure event-driven approach with a central source of truth e.g. AppState, ensures the event trigger _path_ is deterministic.
 ## Example
 Here is some (incomplete) code for the domain data model (written in CoffeeScript):
+
 ```coffeescript
 AppState = new Backbone.Model
     domain: null

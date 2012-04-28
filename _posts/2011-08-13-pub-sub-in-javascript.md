@@ -3,7 +3,7 @@ title: Pub/Sub in JavaScript
 layout: post
 ---
 
-I recently [wrote a post] [] about sprinkling various _controller-esque_ functionality in Backbone Collections for acting as the _event hub_ for the items within their respective collections. The one caveat to the example presented is the **tight-coupling** that the ``Domain``, ``SubDomain``, and ``Concept`` have to ``AppState``. While implementing this (in my real project), I became frustrated with needing to specify which objects needed to bind to other objects. The other issue with binding to specific objects _and_ loading data asynchronously from the server is needing to include the event binding (or worse initialization) of objects within AJAX success callbacks of dependent objects. Again, tight-coupling.
+I recently [wrote a post]({% post_url 2011-08-01-backbone-design-pattern-controller-delegate %}) about sprinkling various _controller-esque_ functionality in Backbone Collections for acting as the _event hub_ for the items within their respective collections. The one caveat to the example presented is the **tight-coupling** that the ``Domain``, ``SubDomain``, and ``Concept`` have to ``AppState``. While implementing this (in my real project), I became frustrated with needing to specify which objects needed to bind to other objects. The other issue with binding to specific objects _and_ loading data asynchronously from the server is needing to include the event binding (or worse initialization) of objects within AJAX success callbacks of dependent objects. Again, tight-coupling.
 
 [wrote a post]: /backbone-design-pattern-controller-delegate
 

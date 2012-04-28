@@ -10,8 +10,8 @@
 
         <meta name=viewport content=width=device-width,initial-scale=1.0>
 
-        <link rel=stylesheet href=/css/normalize.css>
         <link rel=stylesheet href=/css/minimal.css>
+        <link rel=stylesheet href=/css/bootstrap.css>
         <link rel=stylesheet href=/css/pygments.css>
 
         <!--[if lt IE 9]>
@@ -21,8 +21,12 @@
     <body>
         <header><a href=/>Musings by <strong>@thedevel</strong></a></header>
 
-        <div id=content>
-            {{ content }}
+        <div id=content class=container-fluid>
+            <div class=row-fluid>
+                <div class=span12>
+                    {{ content }}
+                </div>
+            </div>
         </div>
 
         <hr>

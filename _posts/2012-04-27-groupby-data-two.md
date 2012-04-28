@@ -28,12 +28,9 @@ generate the HTML given the resulting data from the first function.
   display: inline-block;
   vertical-align: middle; }
 .group .group-label {
-  padding: 5px 10px;
+  display: block;
   font-size: 18px;
   font-weight: bold; }
-.group .group-label .group-key {
-  display: block;
-  margin-right: 5px; }
 .group .group-table {
   width: auto;
   background-color: #fff;
@@ -120,14 +117,17 @@ generate the HTML given the resulting data from the first function.
         var html = [],
             sep = sep || ',';
         // Build group
-        _.each(groups, function(list, groupKey) {
+        _.each(groups, function(list, groupKey, i) {
             var group = $('<div>').addClass('group'),
                 label = $('<span>').addClass('group-label'),
                 table = $('<table>').addClass('group-table'),
                 header = $('<tr>'),
                 tbody = $('<tbody>');
             if (_.isString(groupKey)) {
-                _.each(groupKey.split(sep), function(tok) {
+                _.each(groupKey.split(sep), function(tok, i) {
+                    if (i !== 0) {
+                        label.append(', ');
+                    }
                     label.append('<span class=group-key>' + $.trim(tok) + '</span>');
                 });
             } else {

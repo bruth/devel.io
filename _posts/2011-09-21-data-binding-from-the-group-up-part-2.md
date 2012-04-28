@@ -5,8 +5,8 @@ layout: post
 
 _Follow along with the examples on jsFiddle: [http://jsfiddle.net/bruth/nGBVh/](http://jsfiddle.net/bruth/nGBVh/)_
 
-This is a continuation from [the first article] [] on writing a data binding
-implementation in JavaScript.
+This is a continuation from [the first article]({% post_url 2011-09-20-data-binding-from-the-ground-up %})
+on writing a data binding implementation in JavaScript.
 
 To review where we left off, here are the outstanding issues left over from
 the initial article:
@@ -32,7 +32,7 @@ elements.
 # State Of The Code
 
 Note this has been updated to use ``data-bind`` by default per update from
-[the first article] [].
+[the first article]({% post_url 2011-09-20-data-binding-from-the-ground-up %}).
 
 ```javascript
 function setValue(elem, value) {
@@ -155,5 +155,3 @@ var modelInt = ModelInterface(model),
 modelInt.notify(fragInt);
 fragInt.observe(modelInt);
 ```
-
-[the first article]: /data-binding-from-the-ground-up/
