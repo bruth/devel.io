@@ -2,13 +2,14 @@
 layout: default
 ---
 
-{% for post in site.posts limit:1 %}
-## Latest: [{{ post.title }}]({{ post.url }})
+## Recent
 
-{{ post.content | truncatehtml:200 }}
+{% for post in site.posts limit:5%}- _{{ post.date | date_to_string }}_ - [{{ post.title }}]({{ post.url }})
 {% endfor %}
 
-{% for post in site.posts %}- _{{ post.date | date_to_string }}_ - [{{ post.title }}]({{ post.url }})
+## Older
+
+{% for post in site.posts offset:5 %}- _{{ post.date | date_to_string }}_ - [{{ post.title }}]({{ post.url }})
 {% endfor %}
 
 ## C`0`de
