@@ -35,9 +35,9 @@ header {
 }
 
 code {
-    background-color: #f9f9f9;
-    font-size: 15px;
-    border: 1px solid #e5e5e5;
+    color: #000;
+    font-size: 14px;
+    font-family: Monaco, "Bitstream Vera Sans Mono", monospace;
 }
 
 pre {
@@ -47,7 +47,7 @@ pre {
     border: 1px solid #e5e5e5;
     overflow-x: auto;
     text-shadow: none;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 pre code {
