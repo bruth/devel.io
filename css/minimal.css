@@ -60,3 +60,8 @@ footer {
     text-align: center;
     font-size: 14px;
 }
+
+#content {
+    margin: 0 auto;
+    max-width: 780px;
+}

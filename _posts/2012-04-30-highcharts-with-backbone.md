@@ -3,9 +3,9 @@ layout: post
 title: Highcharts with Backbone
 ---
 
-[Highcharts](http://www.highcharts.com/) is a pretty excellent charting library. It has a [plethora of configuration options](http://www.highcharts.com/ref/) which is great for customization, but is quite daunting otherwise. I will applying some [convention over configuration](http://en.wikipedia.org/wiki/Convention_over_configuration) in the examples below mainly to keep things simple.
+[Highcharts](http://www.highcharts.com/) is a pretty excellent charting library. It has a [plethora of configuration options](http://www.highcharts.com/ref/) which is great for customization, but is quite daunting for simple charts. I will applying some [convention over configuration](http://en.wikipedia.org/wiki/Convention_over_configuration) in the examples below mainly to keep things simple.
 
-I use [Backbone](http://backbonejs.org) for many things on the client since I see it as a general purpose tool for structuring your client-side apps (along with AMD modules). The simply idea here is to create Backbone `View` subclasses representing a given chart type. The data source will of course be a Backbone `Model` or `Collection` which keeps things cleanly abstracted.
+I use [Backbone](http://backbonejs.org) for many things on the client since I see it as a general purpose tool for structuring your client-side apps (along with AMD modules). The simple idea here is to create Backbone `View` subclasses representing a the chart types. The data source will of course be a Backbone `Model` or `Collection` which keeps things cleanly abstracted.
 
 Let's start with the data.
 
@@ -98,17 +98,12 @@ class DynamicChart extends Chart
 
 	initialize: (options) ->
 		super options
-		# Bind to collection or model events for knowing when to redraw
-		# the chart
+		# Bind to collection or model events for knowing when to redraw the chart
 		if @collection
 			if @collection instanceof Series
 				@collection.on 'add', @addPoint
 			else
 				@collection.on 'add', @addSeries
-			# This may be a little aggresive to trigger on all events
-			@collection 'all', @redraw
-		else if @model
-			@model 'all', @redraw
 
 	addPoint: (collection, model, options) =>
 		if not @chart then return
@@ -118,11 +113,6 @@ class DynamicChart extends Chart
 	addSeries: (collection, model, options) =>
 		if not @chart then return
 		@chart.addSeries model.toJSON()
-
-	# The debounce function is used here to prevent multiple upstream events
-	# from triggering the a chart redraw
-	redraw: _.debounce =>
-		if @chart then @chart.redraw()
 ```
 
 ## Chart Subclasses
@@ -170,3 +160,11 @@ class SplineChart extends Chart
 		chart:
 			type: 'spline'
 ```
+
+This is only the beginning. There are a few other conveniences that can be implemented, such as:
+
+- passing in view options that map to some nested Highcharts configuration
+- the ability to pass data directly to the view for one-off charts (no need for a `Model` or `Collection`)
+- data parsers that return structures compatible with Highcarts
+
+I will be making a library with this boilerplate code. Stay tuned for an upcoming post!
