@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Backbone Ajax Queue
+summary: This an update and enhancement to [Async UIs with Backbone]({% post_url 2012-04-20-async-ui-backbone %}) to return deferred object when an async request is added to the queue, but has not necessarily been sent yet.
+
 ---
 
 **This is an update to an article I previously wrote about [Async UIs with Backbone]({% post_url 2012-04-20-async-ui-backbone %}).**

@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Designing for Metadata-driven Data Discovery
+significance: 7
+summary: What is necessary for taking _data about data_ and using it to drive data discovery? Context.
+
 ---
 
 What is necessary for taking _data about data_ and using it to drive data discovery?

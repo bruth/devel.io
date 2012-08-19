@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Highcharts with Backbone
+summary: Simplify creating JavaScript rendered charts using [Backbone](http://backbonejs.org) and [Highcharts](http://www.highcharts.com).
+
 ---
 
 [Highcharts](http://www.highcharts.com/) is a pretty excellent charting library. It has a [plethora of configuration options](http://www.highcharts.com/ref/) which is great for customization, but is quite daunting for simple charts. I will applying some [convention over configuration](http://en.wikipedia.org/wiki/Convention_over_configuration) in the examples below mainly to keep things simple.

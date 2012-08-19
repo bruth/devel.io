@@ -65,3 +65,22 @@ footer {
     margin: 0 auto;
     max-width: 780px;
 }
+
+.title {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.summary {
+    margin-left: 20px;
+    font-style: italic;    
+    color: #999;
+}
+
+.summary > * {
+    font-size: 14px;
+}
+
+.summary a {
+    color: #222;
+}

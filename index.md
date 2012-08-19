@@ -2,23 +2,42 @@
 layout: default
 ---
 
-## Recent
+{% capture code %}
+- [avocado](http://cbmi.github.com/avocado/) - Metadata APIs for Django
+- [serrano](http://cbmi.github.com/serrano/) - Hypermedia APIs for Avocado
+- [cilantro](http://cbmi.github.com/cilantro/) - Browser-based client for Serrano
+- [modeltree](http://cbmi.github.com/modeltree/) - Metadata-driven dynamic queries for Django
+- [restlib2](http://bruth.github.com/restlib2/) - Hypermedia APIs for Django
+- [jsonpatch-js](http://bruth.github.com/jsonpatch-js/) - A JavaScript implementation of the JSON Media Type for partial modifications
+- [Synapse](http://bruth.github.com/synapse/) - "Data binding for the rest of us"
+- [more](https://github.com/bruth)...
+{% endcapture %}
 
-{% for post in site.posts limit:5%}- _{{ post.date | date_to_string }}_ - [{{ post.title }}]({{ post.url }})
+{% capture elsewhere %}
+- [Github](https://github.com/bruth)
+- [Twitter](https://twitter.com/thedevel)
+- [Google+](https://plus.google.com/106530954599911462020)
+{% endcapture %}
+
+
+<div class=row>
+<div class=span7>
+<h2>Stream</h2>
+
+{% for post in site.posts limit %}
+<h2 class=title><a href="{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date_to_string }}</small></h2>
+{% if post.summary %}
+{% capture summary %}{{ post.summary|markdownify }}{% endcapture %}
+<div class=summary>{{ summary }}</div>
+{% endif %}
 {% endfor %}
+</div>
 
-## Older
+<div class=span5>
+<h2>Code</h2>
+{{ code|markdownify }}
 
-{% for post in site.posts offset:5 %}- _{{ post.date | date_to_string }}_ - [{{ post.title }}]({{ post.url }})
-{% endfor %}
-
-## C`0`de
-
-[Spoon](https://bitbucket.org/spooning/).. err Fork me on [GitHub](https://github.com/bruth)
-
-- [Synapse](https://github.com/bruth/synapse) - "Data binding for the rest of us"
-- [restlib2](https://github.com/bruth/restliub2) - Hypermedia APIs for Django
-- [avocado](https://github.com/cbmi/avocado) - Metadata APIs for Django
-- [serrano](https://github.com/cbmi/serrano) - Hypermedia APIs for Avocado
-- [cilantro](https://github.com/cbmi/cilantro) - Browser-based client for Serrano
-- [modeltree](https://github.com/cbmi/modeltree) - Metadata-driven dynamic queries for Django
+<h2>Elsewhere</h2>
+{{ elsewhere|markdownify }}
+</div>
+</div>
