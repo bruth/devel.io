@@ -9,7 +9,11 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 20px;
-    color: #333;
+    color: #222 !important;
+}
+
+h1, h2 {
+    font-weight: 400 !important;
 }
 
 em {
@@ -27,6 +31,7 @@ header {
     background-color: rgba(255, 255, 255, 0.7);
     border-bottom: 1px solid #fff;
     position: fixed;
+    z-index: 10;
     padding: 10px 20px;
     top: 0;
     left: 0;
@@ -59,6 +64,12 @@ pre code {
 footer {
     text-align: center;
     font-size: 14px;
+    margin-top: 20px;
+    color: #999;
+}
+
+footer a {
+    color: #222;
 }
 
 #content {
@@ -66,9 +77,23 @@ footer {
     max-width: 780px;
 }
 
+.post {
+    margin-bottom: 20px;
+}
+
 .title {
-    font-size: 18px;
     font-weight: 400;
+    line-height: 28px;
+}
+
+.title > * {
+    vertical-align: middle;
+}
+
+.meta {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #999;
 }
 
 .summary {
@@ -83,4 +108,28 @@ footer {
 
 .summary a {
     color: #222;
+}
+
+.content {
+    background: transparent url(../img/furley.png);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.content:before, .content:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    width: 98%;
+    left: 1%;
+    height: 20px;
+    -webkit-box-shadow:0 1px 10px rgba(0, 0, 0, 0.2);
+   -moz-box-shadow:0 1px 10px rgba(0, 0, 0, 0.2);
+   box-shadow:0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.content:before, .content:after {
+    -moz-border-radius: 100px/10px;
+    border-radius: 100px/10px;
 }

@@ -20,24 +20,25 @@ layout: default
 {% endcapture %}
 
 
-<div class=row>
 <div class=span7>
-<h2>Stream</h2>
+    <h2>Stream</h2>
 
-{% for post in site.posts limit %}
-<h2 class=title><a href="{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date_to_string }}</small></h2>
-{% if post.summary %}
-{% capture summary %}{{ post.summary|markdownify }}{% endcapture %}
-<div class=summary>{{ summary }}</div>
-{% endif %}
-{% endfor %}
+    {% for post in site.posts limit %}
+        <div class=post>
+            <h3 class=title><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            <div class=meta>{{ post.content | number_of_words }} words &middot; {{ post.date | date_to_string }}</div>
+            {% if post.summary %}
+                {% capture summary %}{{ post.summary|markdownify }}{% endcapture %}
+                <div class=summary>{{ summary }}</div>
+            {% endif %}
+        </div>
+    {% endfor %}
 </div>
 
 <div class=span5>
-<h2>Code</h2>
-{{ code|markdownify }}
+    <h2>Code</h2>
+    {{ code|markdownify }}
 
-<h2>Elsewhere</h2>
-{{ elsewhere|markdownify }}
-</div>
+    <h2>Elsewhere</h2>
+    {{ elsewhere|markdownify }}
 </div>
