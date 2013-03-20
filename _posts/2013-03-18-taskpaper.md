@@ -3,7 +3,9 @@ title: "Quicky: TaskPaper"
 layout: post
 ---
 
-Product: [TaskPaper: Simple to-do lists](http://www.hogbaysoftware.com/products/taskpaper)
+**Update**: I posted a few TaskPaper [goodies](https://github.com/bruth/taskpaper-goodies) including useful scripts, themes and a shell command for an OS X reminder.
+
+[TaskPaper: Simple to-do lists](http://www.hogbaysoftware.com/products/taskpaper)
 
 Highlights:
 
