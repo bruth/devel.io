@@ -1,8 +1,9 @@
 ---
-published: false
+published: true
 layout: post
 title: "Go: Handling Arbitrary JSON"
 date: {}
+summary: "Go provides an interesting approach to decoding and encoding JSON to and from types. However, the type-safety could get in the way when handling JSON with an unknown structure. This post gives a quick introduction to the problem and one way of handling arbitrary JSON."
 ---
 
 [Go](http://golang.org) provides the [encoding/json](http://golang.org/pkg/encoding/json/) package in it's standard library. The first thing I immediately wondered (and got hung up on) was how a statically typed language would handle decoding arbitrary JSON. Furthermore, Go [does not have a type hierarchy](http://golang.org/doc/faq#inheritance) nor support for [generics](http://golang.org/doc/faq#generics).
@@ -17,7 +18,7 @@ In practice this means functions and methods can be defined to expect and return
 
 ```go
 func Echo(i interface{}) (interface{}) {
-        return i
+	return i
 }
 ```
 _[Live example](http://play.golang.org/p/-nzvZnQpLc)_
@@ -147,4 +148,3 @@ This will merge the data in the `Extra` map back into the object.
 - [Go by Example: JSON](https://gobyexample.com/json)
 - [mgo](http://labix.org/mgo)
 - [mgo/bson docs](http://godoc.org/labix.org/v2/mgo/bson)
-
