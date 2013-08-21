@@ -2,7 +2,6 @@
 published: true
 layout: post
 title: "Go: Handling Arbitrary JSON"
-date: {}
 summary: "Go provides an interesting approach to decoding and encoding JSON to and from types. However, the type-safety could get in the way when handling JSON with an unknown structure. This post gives a quick introduction to the problem and one way of handling arbitrary JSON."
 ---
 
