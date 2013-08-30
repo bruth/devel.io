@@ -1,8 +1,8 @@
 ---
 published: true
 layout: post
-title: MongoDB
-summary: Notes on learning MongoDB from a relational database perspective.
+title: "Notes: The Little MongoDB Book"
+summary: Personal notes from reading [The Little MongoDB Book](http://openmymind.net/2011/3/28/The-Little-MongoDB-Book/) by Karl Seguin with additional thoughts and comments.
 ---
 
 ### Schemas
