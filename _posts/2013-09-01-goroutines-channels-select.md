@@ -124,110 +124,82 @@ To be able to cancel the request, the request itself needs to be referenced. Als
 
 In addition, although I was looking for a idiomatic way to wait for a series of goroutines to finish using channels, I've replaced the polling loop with a `sync.WaitGroup`.
 
-Here is the full updated code:
+Here is the full updated code (thanks to [Bryan Mills](https://plus.google.com/102284724133933401859) for his review and help):
 
 ```go
 package main
 
 import (
-	"bytes"
-	"errors"
-	"fmt"
-	"io/ioutil"
-	"net/http"
-	"os"
-	"sync"
-	"time"
+    "fmt"
+    "io/ioutil"
+    "net/http"
+    "os"
+    "sync"
+    "time"
 )
 
 // Custom client with transport for better control
 var transport = http.Transport{}
 var client = http.Client{
-	Transport: &transport,
+    Transport: &transport,
 }
 
 func fetchBody(url string, timeout time.Duration) ([]byte, error) {
-	// Buffer and error for the response
-	var body bytes.Buffer
-	var err error
+    // Initialize request, send it in a goroutine so it can be closed
+    // if the response exceeds the timeout.
+    req, _ := http.NewRequest("GET", url, nil)
 
-	// Channel for denoting when the response has come back
-	done := make(chan bool, 1)
+    // Set up the timer for canceling the request. Stop it if the
+    // request succeeds
+    timer := time.AfterFunc(timeout, func() {
+        transport.CancelRequest(req)
+        fmt.Println(url, "timed out")
+    })
+    defer timer.Stop()
 
-	// Initialize request, send it in a goroutine so it can be closed
-	// if the response exceeds the timeout.
-	req, _ := http.NewRequest("GET", url, nil)
-
-	// The request will finish either successfully or will be canceled
-	// down below
-	go func() {
-		resp, err := client.Do(req)
-		defer resp.Body.Close()
-		if err == nil {
-			_, err = body.ReadFrom(resp.Body)
-		}
-		done<- true
-	}()
-
-	// Block until a response has come back or the request has
-	// been cancel upstream
-	select {
-	case <-done:
-	case <-time.After(timeout):
-		// Cancel the request, close the connection
-		transport.CancelRequest(req)
-		err = errors.New(fmt.Sprint(url, "timed out"))
-	}
-
-	// Return the bytes of the body which make be empty
-	return body.Bytes(), err
+    // This will block until it succeeds or is canceled
+    resp, err := client.Do(req)
+    if err != nil {
+        return nil, err
+    }
+    defer resp.Body.Close()
+    return ioutil.ReadAll(resp.Body)
 }
 
 func main() {
-	urls := os.Args[1:]
+    urls := os.Args[1:]
 
-	if len(urls) == 0 {
-		fmt.Println("nothing to do")
-		return
-	}
+    if len(urls) == 0 {
+        fmt.Println("nothing to do")
+        return
+    }
 
-	// write all the bodies to a temporary file in the current directory
-	// prefixed with the time
-	temp, _ := ioutil.TempFile(".", fmt.Sprintf("%v-", time.Now()))
-	defer temp.Close()
+    // write all the bodies to a temporary file in the current directory
+    // prefixed with the time
+    temp, _ := ioutil.TempFile(".", fmt.Sprintf("%v-", time.Now()))
+    defer temp.Close()
 
-	// Wait group and timeout
-	wg := sync.WaitGroup{}
-	timeout := 500 * time.Millisecond
+    // Wait group and timeout
+    wg := sync.WaitGroup{}
+    timeout := 500 * time.Millisecond
 
-	for _, url := range urls {
-		// Increment wait group for each URL
-		wg.Add(1)
+    for _, url := range urls {
+        // Increment wait group for each URL
+        wg.Add(1)
 
-		// Pass the URL into closure so the URL is scoped correctly for the inner
-		// goroutine.
-		go func(url string) {
-			done := make(chan bool, 1)
+        go func(url string) {
 
-			go func() {
-				// Wait
-				body, err := fetchBody(url, timeout)
-				if err != nil {
-					fmt.Println(err)
-				} else {
-					temp.Write(body)
-				}
-				done<- true
-			}()
-			// Block until received, either successfully or via the timeout
-			<-done
+            defer wg.Done()
+            body, err := fetchBody(url, timeout)
+            if err != nil {
+                fmt.Println(err)
+            } else {
+                temp.Write(body)
+            }
+        }(url)
+    }
 
-			// Mark one of the waiters as done
-			wg.Done()
-		}(url)
-	}
-
-	// Block until everyone is done
-	wg.Wait()
+    // Block until everyone is done
+    wg.Wait()
 }
 ```
