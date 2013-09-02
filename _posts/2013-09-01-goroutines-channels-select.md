@@ -7,7 +7,7 @@ summary: "Example use of goroutines, channels and the select statement in Go."
 
 This is a quick explanation of goroutines with timeouts using the `select` statement in Go.
 
-Say you want to scrape the bodies of a few webpages. We can write a program that iterates over the urls passed to the program and performs a `GET` to receive the response and we write the body to a temporary file.
+Say you want to scrape the bodies of a few webpages. We can write a program that iterates over each url passed to the program, perform a `GET` request, and write the body to a temporary file.
 
 ```go
 package main
@@ -40,11 +40,11 @@ func main() {
     
     // write all the bodies to a temporary file in the current directory
     // prefixed with the time
-   	temp, _ := ioutil.Tempfile(".", fmt.Sprintf("%v-", time.Now()))
+	temp, _ := ioutil.TempFile(".", fmt.Sprintf("%v-", time.Now()))
     defer temp.Close()
     
     for _, url := range urls {
-		body, err := fetchBody(url)
+		body, _ := fetchBody(url)
         temp.Write(body)
     }
 }
@@ -55,7 +55,7 @@ The problem with this approach is two-fold. Since we are working with _remote_ s
 ```go
 for _, url := range urls {
     go func() {
-        body, err := fetchBody(url)
+        body, _ := fetchBody(url)
         temp.Write(body)
     }()
 }
@@ -69,7 +69,7 @@ counter := make(chan bool, len(urls))
 
 for _, url := range urls {
 	go func() {
-    	body, err := fetchBody(url)
+    	body, _ := fetchBody(url)
         temp.Write(body)
         counter<- true
     }()
@@ -96,10 +96,10 @@ go func() {
 	done := make(chan bool, 1)
     
 	go func() {
-		body, err := fetchBody(url)
+		body, _ := fetchBody(url)
     	temp.Write(body)
         done<- true
-    }
+    }()
         
     select {
     case <-done:
@@ -111,4 +111,4 @@ go func() {
 
 A goroutine inside _another_ goroutine!! Yes. The outer one initializes a `bool` channel for the inner goroutine to send on when it's done. The `select` statement will receive from `done` or timeout after one second. Note that the `counter` channel receives a value regardless since the goroutine has completed. This ensures the main goroutine does not block for timed out fetches.
 
-The most the program should run is about one second since each operation cannot exceed one second and they are running in parallel.
+The program should run in about one second since the operations are running in parallel and each operation times out after a second.
