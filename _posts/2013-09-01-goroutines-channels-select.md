@@ -1,5 +1,4 @@
 ---
-published: false
 layout: post
 title: "Goroutines, Channels, and Select"
 summary: "Example use of goroutines, channels and the select statement in Go."
