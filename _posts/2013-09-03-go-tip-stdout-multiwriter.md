@@ -30,7 +30,7 @@ func main() {
     cmd.Run()
 
     // See the magic
-    fmt.Print(b1.String())
-    fmt.Print(b2.String())
+    fmt.Println("b1:", b1.String())
+    fmt.Println("b2:", b2.String())
 }
 ```
