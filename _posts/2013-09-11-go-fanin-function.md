@@ -12,6 +12,13 @@ I expanded on the core ideas including use of channels, the `select` statement, 
 Here is a [live example](http://play.golang.org/p/5-Vu8kK3yM) of the code below.
 
 ```go
+import (
+	"log"
+	"math/rand"
+	"sync"
+	"time"
+)
+
 // fanIn takes zero or more channels and merges the received data to a
 // single output channel. For efficiency, the output channel should be
 // buffered to the number of inputs to prevent goroutines blocking each
