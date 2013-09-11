@@ -52,7 +52,8 @@ pre {
     border: 1px solid #e5e5e5;
     overflow-x: auto;
     text-shadow: none;
-    font-size: 13px;
+    font-size: 12px;
+    line-height: 18px;
 }
 
 pre code {
@@ -98,7 +99,7 @@ footer a {
 
 .summary {
     margin-left: 20px;
-    font-style: italic;    
+    font-style: italic;
     color: #999;
 }
 
