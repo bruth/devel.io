@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Cross-Origin Resource Sharing in Practice"
-permalink: "cors-in-practice"
 ---
 
 This is a quick summary of what is required by the client and server for CORS with credentials.
