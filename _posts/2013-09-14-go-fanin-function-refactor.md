@@ -87,7 +87,7 @@ open := true
 
 for open {
     select {
-    case v, open := input:
+    case v, open := <-input:
         if !open { break }
         output<- v
     case ...
@@ -106,7 +106,7 @@ open := true
 
 for open {
     select {
-    case v, open := input:
+    case v, open := <-input:
         if !open { break }
         output<- v
     case <-time.After(1 * time.Second):
