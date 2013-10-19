@@ -1,7 +1,5 @@
-lsi: true
-
 pygments: true
-markdown: redcarpet2
+markdown: redcarpet
 permalink: pretty
 
 include: [.htaccess]
