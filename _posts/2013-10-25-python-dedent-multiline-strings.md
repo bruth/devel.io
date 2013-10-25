@@ -1,4 +1,5 @@
 ---
+layout: post
 published: true
 title: "Python Tip: Dedent Multi-line Strings"
 ---
