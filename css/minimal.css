@@ -1,23 +1,14 @@
-@import url(http://fonts.googleapis.com/css?family=Magra:400,700);
-
 body {
     padding-top: 60px;
     padding-bottom: 20px;
-    background: #f9f9f9 url(../img/furley.png);
+    background: #fff;
+    font-weight: 400;
     text-shadow: 0 1px 1px #fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 20px;
     color: #222 !important;
-}
-
-h1, h2 {
-    font-weight: 400 !important;
-}
-
-em {
-    color: #777;
 }
 
 h2 code {
@@ -28,7 +19,7 @@ h2 code {
 
 header {
     box-shadow: 0 1px 2px #ccc;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid #fff;
     position: fixed;
     z-index: 10;
@@ -40,9 +31,8 @@ header {
 }
 
 code {
-    color: #000;
-    font-size: 14px;
-    font-family: Monaco, "Bitstream Vera Sans Mono", monospace;
+    color: #333;
+    background-color: #f9f9f9;
 }
 
 pre {
@@ -83,7 +73,6 @@ footer a {
 }
 
 .title {
-    font-weight: 400;
     line-height: 28px;
 }
 
@@ -112,25 +101,12 @@ footer a {
 }
 
 .content {
-    background: transparent url(../img/furley.png);
     position: relative;
     padding-bottom: 10px;
 }
 
-.content:before, .content:after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    bottom: 0;
-    width: 98%;
-    left: 1%;
-    height: 20px;
-    -webkit-box-shadow:0 1px 10px rgba(0, 0, 0, 0.2);
-   -moz-box-shadow:0 1px 10px rgba(0, 0, 0, 0.2);
-   box-shadow:0 1px 10px rgba(0, 0, 0, 0.2);
-}
-
-.content:before, .content:after {
-    -moz-border-radius: 100px/10px;
-    border-radius: 100px/10px;
+.content img {
+    max-height: 500px;
+    margin: 20px auto;
+    display: block;
 }

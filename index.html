@@ -2,44 +2,29 @@
 layout: default
 ---
 
-{% capture code %}
-- [Marky](https://github.com/bruth/marky/) - A Markdown Previewer
-- [avocado](http://cbmi.github.com/avocado/) - Metadata APIs for Django
-- [serrano](http://cbmi.github.com/serrano/) - Hypermedia APIs for Avocado
-- [cilantro](http://cbmi.github.com/cilantro/) - Browser-based client for Serrano
-- [modeltree](http://cbmi.github.com/modeltree/) - Metadata-driven dynamic queries for Django
-- [restlib2](http://bruth.github.com/restlib2/) - Hypermedia APIs for Django
-- [jsonpatch-js](http://bruth.github.com/jsonpatch-js/) - A JavaScript implementation of the JSON Media Type for partial modifications
-- [Synapse](http://bruth.github.com/synapse/) - "Data binding for the rest of us"
-- [more](https://github.com/bruth)...
-{% endcapture %}
-
 {% capture elsewhere %}
-- [Github](https://github.com/bruth)
-- [Twitter](https://twitter.com/thedevel)
-- [Google+](https://plus.google.com/106530954599911462020)
+- [@bruth](https://github.com/bruth) on Github
+- [@thedevel](https://twitter.com/thedevel) on Twitter
+- [+Byron Ruth](https://plus.google.com/106530954599911462020) on Google+
 {% endcapture %}
 
 
-<div class=span7>
-    <h2>Stream</h2>
+<div class=col-md-9>
+    <h2>Posts</h2>
 
     {% for post in site.posts limit %}
         <div class=post>
-            <h3 class=title><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
             <div class=meta>{{ post.content | number_of_words }} words &middot; {{ post.date | date_to_string }}</div>
             {% if post.summary %}
                 {% capture summary %}{{ post.summary|markdownify }}{% endcapture %}
-                <div class=summary>{{ summary }}</div>
+                <div>{{ summary }}</div>
             {% endif %}
         </div>
     {% endfor %}
 </div>
 
-<div class=span5>
-    <h2>Code</h2>
-    {{ code|markdownify }}
-
+<div class=col-md-3>
     <h2>Elsewhere</h2>
     {{ elsewhere|markdownify }}
 </div>
