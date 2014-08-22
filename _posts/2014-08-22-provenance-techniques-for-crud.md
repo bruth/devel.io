@@ -54,7 +54,7 @@ The comment did not come out of thin air. It was written based on the content an
 
 > A primary source relation is a kind of a derivation relation from secondary materials to their primary sources. It is recognized that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain.
 
-This translates to a comment being a secondary material derived from it's primary source, the post.
+This translates to a comment being a secondary material derived from its primary source, the post.
 
 To sum up all the above in a visual, this is what the provenance graph looks like for Bob's comment:
 
@@ -83,7 +83,7 @@ Looking back out our example, after Sue replies, Bob decides to edit his comment
 }
 ```
 
-The issue with an update like this, is that information is lost - specifically, the first version of Bob's comment. The downstream effect this has can be seen when Bill comes along and reads Bob's edited comment followed by Sue's reply to Bob's *original comment*. Depending on what Bob changed, Sue's reply may not make sense resulting in confusion for Bill. In a sense, the comment thread is in a corrupt state since Sue's reply is no longer associated with it's *primary source*, Bob's original comment.
+The issue with an update like this, is that information is lost - specifically, the first version of Bob's comment. The downstream effect this has can be seen when Bill comes along and reads Bob's edited comment followed by Sue's reply to Bob's *original comment*. Depending on what Bob changed, Sue's reply may not make sense resulting in confusion for Bill. In a sense, the comment thread is in a corrupt state since Sue's reply is no longer associated with its *primary source*, Bob's original comment.
 
 This type of situation is exactly why applying provenance techniques is often desired or necessary. The practical value of recording provenance is the ability to reproduce the state of an object in your application at any point in time. Modifying something removes the ability to reproduce past versions.
 
@@ -116,7 +116,7 @@ Although this is a simple example, the utility of provenance can apply to every 
 
 > [Provenance](http://en.wikipedia.org/wiki/Provenance) (from the French *provenir*, "to come from") is the chronology of the ownership, custody or location of a historical object. The term was originally mostly used in relation to works of art, but is now used in similar senses in a wide range of fields, including archaeology, paleontology, archives, manuscripts, printed books, and science and computing.
 
-In the clinical research and healthcare fields (where I work), provenance is essential due to the wide variability and high veracity (uncertainty) of the data. Much of healthcare data is free-text or in formats that require heavy processing before being used in secondard applications. Changes to data increases the likelihood of error during the process and increases it's uncertainy unless it is known how the data was derived from it's source.
+In the clinical research and healthcare fields (where I work), provenance is essential due to the breadth and variability of domains and data formats. Much of healthcare data is free-text or in formats that require heavy processing before being used in secondary applications. Data processing increases the likelihood of error and descreases its certainy at every (non-trivial) step unless it is known how the data was derived from its source.
 
 Putting in the effort to apply these simple techniques to your applications or processes will increase the trustworthiness, reliability, and overall quality of the data.
 
