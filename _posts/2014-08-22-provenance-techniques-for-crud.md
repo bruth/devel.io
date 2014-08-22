@@ -119,3 +119,7 @@ Although this is a simple example, the utility of provenance can apply to every 
 In the clinical research and healthcare fields (where I work), provenance is essential due to the wide variability and high veracity (uncertainty) of the data. Much of healthcare data is free-text or in formats that require heavy processing before being used in secondard applications. Changes to data increases the likelihood of error during the process and increases it's uncertainy unless it is known how the data was derived from it's source.
 
 Putting in the effort to apply these simple techniques to your applications or processes will increase the trustworthiness, reliability, and overall quality of the data.
+
+---
+
+*[Discuss on Hacker News](https://news.ycombinator.com/item?id=8212476)*
