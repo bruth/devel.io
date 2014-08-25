@@ -40,17 +40,17 @@ There are three primary models in this example - author, post, and comment - how
 }
 ```
 
-A create (or insert or add) operation defines something in the system that was not previously accessible. Provenance treats this *act* as an event, specifically a [generation](http://www.w3.org/TR/2013/REC-prov-dm/#concept-generation) event which declares the existence of an entity that is now *accessible to the rest of the world*. The generation event has a `time` attribute that marks the instantaneous time of generation and is equivalent to the `created` timestamp on the comment itself.
+A create (or insert or add) operation defines something in the system that was not previously accessible. Provenance treats this *act* as an event, specifically a [generation](http://www.w3.org/TR/prov-dm/#concept-generation) event which declares the existence of an entity that is now *accessible to the rest of the world*. The generation event has a `time` attribute that marks the instantaneous time of generation and is equivalent to the `created` timestamp on the comment itself.
 
-The generation event occurs as a result of an [activity](http://www.w3.org/TR/2013/REC-prov-dm/#concept-activity) that produced the comment, such as "writing and submitting the comment on the post's webpage". This may sound unnecessary, but if there is more than one way to create a comment, this information differentiates *how* the comment was created. In PROV, activities have an optional `startTime` and `endTime`. For example, if we knew when Bob began writing the comment and when he clicked the submit button, we could set these times on the activity.
+The generation event occurs as a result of an [activity](http://www.w3.org/TR/prov-dm/#concept-activity) that produced the comment, such as "writing and submitting the comment on the post's webpage". This may sound unnecessary, but if there is more than one way to create a comment, this information differentiates *how* the comment was created. In PROV, activities have an optional `startTime` and `endTime`. For example, if we knew when Bob began writing the comment and when he clicked the submit button, we could set these times on the activity.
 
-A comment always has an author whether they are named or anonymous; Bob in this example. The author is referred to as an [agent](http://www.w3.org/TR/2013/REC-prov-dm/#concept-agent) in provenance terminology. From the PROV spec:
+A comment always has an author whether they are named or anonymous; Bob in this example. The author is referred to as an [agent](http://www.w3.org/TR/prov-dm/#concept-agent) in provenance terminology. From the PROV spec:
 
 > An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.
 
-The author is [attributed](http://www.w3.org/TR/2013/REC-prov-dm/#concept-attribution) to the comment and [associated](http://www.w3.org/TR/2013/REC-prov/#concept-association) with the activity taking place. Both of these are inferred from the `author_id` attribute of the comment.
+The author is [attributed](http://www.w3.org/TR/prov-dm/#concept-attribution) to the comment and [associated](http://www.w3.org/TR/prov-dm/#concept-association) with the activity taking place. Both of these are inferred from the `author_id` attribute of the comment.
 
-The comment did not come out of thin air. It was written based on the content and interpretation of the post. The comment was in effect *derived* from the post. PROV models this relation as a [derivation](http://www.w3.org/TR/2013/REC-prov/#concept-derivation) and defines a derivation type [primary source](http://www.w3.org/TR/2013/REC-prov/#concept-primary-source):
+The comment did not come out of thin air. It was written based on the content and interpretation of the post. The comment was in effect *derived* from the post. PROV models this relation as a [derivation](http://www.w3.org/TR/prov-dm/#concept-derivation) and defines a derivation type [primary source](http://www.w3.org/TR/prov-dm/#concept-primary-source):
 
 > A primary source relation is a kind of a derivation relation from secondary materials to their primary sources. It is recognized that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain.
 
@@ -87,9 +87,9 @@ The issue with an update like this, is that information is lost - specifically, 
 
 This type of situation is exactly why applying provenance techniques is often desired or necessary. The practical value of recording provenance is the ability to reproduce the state of an object in your application at any point in time. Modifying something removes the ability to reproduce past versions.
 
-An important tenant when applying data provenance techniques is to treat *everything as immutable*. In practice, this means when Bob submits an edit to his original comment, a new comment is created alongside the original one. The provenance mentioned above would be captured since it is a new entity, but it has one additional relation to the original comment, known as a [revision](http://www.w3.org/TR/2013/REC-prov-dm/#concept-revision), which is a form of deriviation (think [version control](http://en.wikipedia.org/wiki/Revision_control)).
+An important tenant when applying data provenance techniques is to treat *everything as immutable*. In practice, this means when Bob submits an edit to his original comment, a new comment is created alongside the original one. The provenance mentioned above would be captured since it is a new entity, but it has one additional relation to the original comment, known as a [revision](http://www.w3.org/TR/prov-dm/#concept-revision), which is a form of deriviation (think [version control](http://en.wikipedia.org/wiki/Revision_control)).
 
-When an update occurs, the previous state of that comment is implicitly invalidated since it's overwritten. Since we do not modify or delete things in provenance-land, we must emulate this by recording an [invalidation](http://www.w3.org/TR/2013/REC-prov-dm/#concept-invalidation) event for the first comment:
+When an update occurs, the previous state of that comment is implicitly invalidated since it's overwritten. Since we do not modify or delete things in provenance-land, we must emulate this by recording an [invalidation](http://www.w3.org/TR/prov-dm/#concept-invalidation) event for the first comment:
 
 > Invalidation is the start of the destruction, cessation, or expiry of an existing entity by an activity. The entity is no longer available for use (or further invalidation) after invalidation.
 
@@ -97,7 +97,7 @@ The provenance graph of Bob's comments now looks like this:
 
 ![PROV update graph](/img/prov-update1.png)
 
-At first glance, this graph looks complicated, however it reflects everything that has influenced Bob's comment. Sue's comment was not included for brevity, however her comment would have a relation to Bob's original comment denoting it was derived from it in some way (e.g primary source or possibly a [quotation](http://www.w3.org/TR/2013/REC-prov-dm/#concept-quotation)).
+At first glance, this graph looks complicated, however it reflects everything that has influenced Bob's comment. Sue's comment was not included for brevity, however her comment would have a relation to Bob's original comment denoting it was derived from it in some way (e.g primary source or possibly a [quotation](http://www.w3.org/TR/prov-dm/#concept-quotation)).
 
 #### Summary
 
