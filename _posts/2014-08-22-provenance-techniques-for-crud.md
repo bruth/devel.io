@@ -17,7 +17,7 @@ Although this seems like a fairly harmless scenario, the issue is in the details
 - `[8:29]` Bob edits his comment
 - `[8:41]` Bill reads Bob's comment and Sue's reply
 
-Depending on what Bob changed in his edit, Bill could be confused about Sue's reply. Because the context change (Bob's first version), Sue's reply may no long be relevant or may not make sense. Unfortunately, Bill is completely unaware of the change. Most good commenting citizens denote an edit has been made in the comment itself (some commenting systems automatically do this), however unless the original content is still visible, what it means and the interpretations of it will change.
+Depending on what Bob changed in his edit, Bill could be confused about Sue's reply. Because the context changed (Bob's first version), Sue's reply may no long be relevant or may not make sense. Unfortunately, Bill is completely unaware of the change. Most good commenting citizens denote an edit has been made in the comment itself (some commenting systems automatically do this), however unless the original content is still visible, what it means and the interpretations of it will change.
 
 We will walk through the process of capturing provenance and any data modeling and processing considerations for applying provenance techniques. Of course applying these techniques are not limited to blogs, but can be applied to any [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)-like application (i.e. virutally any application that writes data).
 
@@ -48,7 +48,7 @@ A comment always has an author whether they are named or anonymous; Bob in this 
 
 > An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.
 
-The author is [attributed](http://www.w3.org/TR/prov-dm/#concept-attribution) to the comment and [associated](http://www.w3.org/TR/prov-dm/#concept-association) with the activity taking place. Both of these are inferred from the `author_id` attribute of the comment.
+The comment is [attributed](http://www.w3.org/TR/prov-dm/#concept-attribution) to the author and the author is [associated](http://www.w3.org/TR/prov-dm/#concept-association) with the activity taking place. Both of these are inferred from the `author_id` attribute of the comment.
 
 The comment did not come out of thin air. It was written based on the content and interpretation of the post. The comment was in effect *derived* from the post. PROV models this relation as a [derivation](http://www.w3.org/TR/prov-dm/#concept-derivation) and defines a derivation type [primary source](http://www.w3.org/TR/prov-dm/#concept-primary-source):
 
