@@ -101,7 +101,7 @@ At first glance, this graph looks complicated, however it reflects everything th
 
 #### Summary
 
-- Modifications to a comment result in data loss and corrupts the context of any replies.
+- Modifications to a comment result in data loss and corrupt the context of any replies.
 - An update/edit should create a new comment following the same provenance capture as stated above.
 - A *revision* derivation between the new comment and old one is created to establish how the new one came to be. The comments themselves combined with the derivation relations represents the comment's *revision history*.
 - Since we are emulating an update action, the activity used to create the new comment (submitting the web form) was also the activity that invalidated the previous comment.
