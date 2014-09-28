@@ -19,7 +19,7 @@ Although this seems like a fairly harmless scenario, the issue is in the details
 
 Depending on what Bob changed in his edit, Bill could be confused about Sue's reply. Because the context changed (Bob's first version), Sue's reply may no long be relevant or may not make sense. Unfortunately, Bill is completely unaware of the change. Most good commenting citizens denote an edit has been made in the comment itself (some commenting systems automatically do this), however unless the original content is still visible, what it means and the interpretations of it will change.
 
-We will walk through the process of capturing provenance and any data modeling and processing considerations for applying provenance techniques. Of course applying these techniques are not limited to blogs, but can be applied to any [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)-like application (i.e. virutally any application that writes data).
+We will walk through the process of capturing provenance and any data modeling and processing considerations for applying provenance techniques. Of course applying these techniques is not limited to blogs, but can be applied to any [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)-like application (i.e. virutally any application that writes data).
 
 The provenance concepts and terminologies introduced are from the [W3C's PROV specification](http://www.w3.org/TR/prov-overview/). The PROV specification defines provenance as:
 
@@ -40,7 +40,7 @@ There are three primary models in this example - author, post, and comment - how
 }
 ```
 
-A create (or insert or add) operation defines something in the system that was not previously accessible. Provenance treats this *act* as an event, specifically a [generation](http://www.w3.org/TR/prov-dm/#concept-generation) event which declares the existence of an entity that is now *accessible to the rest of the world*. The generation event has a `time` attribute that marks the instantaneous time of generation and is equivalent to the `created` timestamp on the comment itself.
+A create (or insert or add) operation defines something in the system that was not previously accessible. Provenance treats this *act* as an event, specifically a [generation](http://www.w3.org/TR/prov-dm/#concept-generation) event which declares the existence of an entity that is now *accessible to the rest of the world*. The generation event has a `time` attribute that marks the time of generation and is equivalent to the `created` timestamp on the comment itself.
 
 The generation event occurs as a result of an [activity](http://www.w3.org/TR/prov-dm/#concept-activity) that produced the comment, such as "writing and submitting the comment on the post's webpage". This may sound unnecessary, but if there is more than one way to create a comment, this information differentiates *how* the comment was created. In PROV, activities have an optional `startTime` and `endTime`. For example, if we knew when Bob began writing the comment and when he clicked the submit button, we could set these times on the activity.
 
@@ -87,7 +87,7 @@ The issue with an update like this, is that information is lost - specifically, 
 
 This type of situation is exactly why applying provenance techniques is often desired or necessary. The practical value of recording provenance is the ability to reproduce the state of an object in your application at any point in time. Modifying something removes the ability to reproduce past versions.
 
-An important tenant when applying data provenance techniques is to treat *everything as immutable*. In practice, this means when Bob submits an edit to his original comment, a new comment is created alongside the original one. The provenance mentioned above would be captured since it is a new entity, but it has one additional relation to the original comment, known as a [revision](http://www.w3.org/TR/prov-dm/#concept-revision), which is a form of deriviation (think [version control](http://en.wikipedia.org/wiki/Revision_control)).
+An important tenant when applying data provenance techniques is to treat *everything as immutable*. In practice, this means when Bob submits an edit to his original comment, a new comment is created alongside the original one. The provenance mentioned above would be captured since it is a new entity, but it has one additional relation to the original comment, known as a [revision](http://www.w3.org/TR/prov-dm/#concept-revision), which is a form of derivation (think [version control](http://en.wikipedia.org/wiki/Revision_control)).
 
 When an update occurs, the previous state of that comment is implicitly invalidated since it's overwritten. Since we do not modify or delete things in provenance-land, we must emulate this by recording an [invalidation](http://www.w3.org/TR/prov-dm/#concept-invalidation) event for the first comment:
 
