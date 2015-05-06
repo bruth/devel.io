@@ -4,8 +4,6 @@ title: "Key-value Modeling: Maps and Arrays"
 summary: "Two techniques for modeling maps and arrays in a key-value store."
 ---
 
-# Data structures
-
 Key-value stores are generally considered to be low-level in the realm of databases and storage engines. The attraction comes from the ability to control how data is organized, when it is written and when it is accessed. The tradeoff is that common data structures like arrays and maps are not natively supported, however they can be *represented*. Below are a few techniques for representing the two most common data structures, map and array, in a key-value store.
 
 Before we start, there are two practical considerations to keep in mind. Most key-value stores use strings or byte arrays for keys and byte arrays for values. This poses two questions.
@@ -18,9 +16,13 @@ Since key-value stores does not provide a higher level of organization (e.g. tab
 
 Since key-value stores store bytes, one must decide the encoding strategy to use for the values. A few questions can arise:
 
-*Does the encoded data need to be portable?* If the key-value store is not the only consumer of the bytes, then an encoding should be selected that can be *decoded* by each consumer. For example, a non-portable format would be [Python's pickle](https://docs.python.org/3/library/pickle.html) encoding. A very portable format would be something like [JSON](http://json.org) since virtually all programming languages have libraries for decoding JSON.
+**Does the encoded data need to be portable?**
 
-*Do specific data types needs to be supported?* Some formats have limited supported for data types specifically when it comes to precision. The common tradeoff is simplicity and portability for speed and/or space. For example, JSON just has a *number* represented in various ways, but does not annotate whether it is an `int32`, `int64`, `float32`, etc. On the opposite side, Google's Protocol Buffers *does* differentiate between these types for performance reasons. For weakly typed values, encoders and decoders needs to detect the required bits and choose an appropriate method for handling the values. Strongly typed encoders already have this information and can blindly handle the value.
+If the key-value store is not the only consumer of the bytes, then an encoding should be selected that can be *decoded* by each consumer. For example, a non-portable format would be [Python's pickle](https://docs.python.org/3/library/pickle.html) encoding. A very portable format would be something like [JSON](http://json.org) since virtually all programming languages have libraries for decoding JSON.
+
+**Do specific data types needs to be supported?**
+
+Some formats have limited supported for data types specifically when it comes to precision. The common tradeoff is simplicity and portability for speed and/or space. For example, JSON just has a *number* represented in various ways, but does not annotate whether it is an `int32`, `int64`, `float32`, etc. On the opposite side, Google's Protocol Buffers *does* differentiate between these types for performance reasons. For weakly typed values, encoders and decoders needs to detect the required bits and choose an appropriate method for handling the values. Strongly typed encoders already have this information and can blindly handle the value.
 
 It is worth pointing out that these details are usually transparent, but it is something to be aware of when choosing an encoder.
 
@@ -192,10 +194,10 @@ The motivation for this approach is for modeling data representing the [state](h
 
 Using this approach to naively store maps and array with arbitrary data, such as user-defined documents is generally a bad idea. This is what document databases are which are optimized for random reads and writes within a document. However if the document types are known and the access patterns are controlled, this approach *may* be appropriate in some cases.
 
-### Atomicty and Consistency
+### Atomcity and Consistency
 
 An obvious problem with the basic implementation above is that there are no atomicity guarantees when writing data nor consistency guarantees when reading data. Any of the data could be changed in the store between a *set* or *get* operation. If this is a problem, then a key-value store with transactions or atomic multi-set or get operations can be used. Another approach is to encode and store the *synchronized* content together so the write is atomic and reads are consistent.
 
-## Resources
+### Resources
 
 An influence for this post is a very thorough overview of [NoSQL Data Modeling Techniques](https://highlyscalable.wordpress.com/2012/03/01/nosql-data-modeling-techniques/).
