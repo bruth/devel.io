@@ -26,8 +26,6 @@ Some formats have limited supported for data types specifically when it comes to
 
 It is worth pointing out that these details are usually transparent, but it is something to be aware of when choosing an encoder.
 
-## Structures
-
 ### Map
 
 The most straightforward data structure to represent is a map (also know as a hash or dictionary). This is because the key-value store itself is one big map!
@@ -188,13 +186,13 @@ Get friends.
 friends, _ := GetArray("friends")
 ```
 
-## Discussion
+### Discussion
 
 The motivation for this approach is for modeling data representing the [state](https://en.wikipedia.org/wiki/State_(computer_science)) of something. Keeping the individual content separate enables accessing and updating the values independently. The alternative is to encode and store the whole structure, however this requires getting and decoding the whole structure just to update one part of the state. Furthermore, if structure is being shared in any way, decoupling the structure enables parallel access which relieves contention. Of course, *what* is being shared is application-specific and *how* the shared data is accessed needs to be thoroughly evaluated.
 
 Using this approach to naively store maps and array with arbitrary data, such as user-defined documents is generally a bad idea. This is what document databases are which are optimized for random reads and writes within a document. However if the document types are known and the access patterns are controlled, this approach *may* be appropriate in some cases.
 
-### Atomcity and Consistency
+### Atomicity and Consistency
 
 An obvious problem with the basic implementation above is that there are no atomicity guarantees when writing data nor consistency guarantees when reading data. Any of the data could be changed in the store between a *set* or *get* operation. If this is a problem, then a key-value store with transactions or atomic multi-set or get operations can be used. Another approach is to encode and store the *synchronized* content together so the write is atomic and reads are consistent.
 
