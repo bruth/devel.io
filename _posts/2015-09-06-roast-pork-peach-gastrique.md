@@ -1,8 +1,10 @@
 ---
-published: false
+published: true
 title: Roast Pork Tenderloin with Peach Gastrique
 category: recipe
+layout: post
 ---
+
 
 This dish is comforting since it closely emulates a stew, but with a sauce instead of broth. The pork is roasted with vegetables, garlic, thyme, and saige until the vegetables are mostly soft and the juices meld together. The sauce is peach balsamic gastrique with the residual juices from the roasted pork.
 
