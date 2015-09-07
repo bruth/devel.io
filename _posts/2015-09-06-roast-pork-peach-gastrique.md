@@ -10,25 +10,25 @@ This dish is comforting since it closely emulates a stew, but with a sauce inste
 
 ## Time
 
-- Prep: 15
-- Cook: 20-25
+- Prep: 15 min
+- Cook: 20-25 min
 
 ## Ingredients
 
-1 pork tenderloin
-1 russet potato
-3 carrots
-8 cremini mushrooms (baby portabellas)
-1/2 vidalia onion
-3 cloves of garlic
-1 ripe peach
-1/2 cup balsamic vinegar
-1/4 cup water
-8 sage leaves
-10 thyme sprigs
-3 tbsp olive oil
-salt
-pepper
+- 1 pork tenderloin
+- 1 russet potato
+- 3 carrots
+- 8 cremini mushrooms (baby portabellas)
+- 1/2 vidalia onion
+- 3 cloves of garlic
+- 1 ripe peach
+- 1/2 cup balsamic vinegar
+- 1/4 cup water
+- 8 sage leaves
+- 10 thyme sprigs
+- 3 tbsp olive oil
+- salt
+- pepper
 
 ## Tools
 
