@@ -18,7 +18,7 @@ This dish is comforting since it closely emulates a stew, but with a sauce inste
 - 1 pork tenderloin
 - 1 russet potato
 - 3 carrots
-- 8 cremini mushrooms (baby portabellas)
+- 8 cremini mushrooms (baby portobellos)
 - 1/2 vidalia onion
 - 3 cloves of garlic
 - 1 ripe peach
@@ -32,7 +32,7 @@ This dish is comforting since it closely emulates a stew, but with a sauce inste
 
 ## Tools
 
-- Sheet pan (preferrably with edges)
+- Sheet pan (preferably with edges)
 - Sauce pan
 - Aluminum foil
 
