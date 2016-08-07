@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/byronruth
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://devel.io
+  * I am byronruth (https://keybase.io/byronruth) on keybase.
+  * I have a public key with fingerprint 2346 07EB 7539 D135 6581  63F7 C873 29F9 01B2 88C1
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01206c5b158c82a4a01a80b6cd2b3c9054f4642405d3d40876d89bf16ff87ceacbd90a",
+            "fingerprint": "234607eb7539d135658163f7c87329f901b288c1",
+            "host": "keybase.io",
+            "key_id": "c87329f901b288c1",
+            "kid": "01017b498a8faa05d66f0ef64f383d49456aea513fa0f063a5db10abaaf988adf1360a",
+            "uid": "52476745086e0aa9af0044257aef3619",
+            "username": "byronruth"
+        },
+        "service": {
+            "hostname": "devel.io",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1470563613,
+    "expire_in": 157680000,
+    "prev": "2790882f8e779fa783b740198d2983f85e92abf6aeb06e782f47187ae64d2bda",
+    "seqno": 11,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.55
+Comment: https://keybase.io/crypto
+
+yMNxAnicbZJ9UBRlHMchwQFEESTLosytZBCkZ2/fnj1E0Bknx5J4C6Rgbp69ffbY
+PO7OvRdijF4AA2UwI7AJCiUdQMWAixnMicEDFMiGl4mmIgTzJUiSYpAIEGqP9L/2
+n539zff7fT6/7z6dq1d4+Hl2W8PmPJ1FLs+rrjK7R2qt91MHCcEs5hDag8R+vPzC
+RhFbbbr9skhoCUBqAKtnBJKBeqhBNAIkgkBg9aJGoPQ8YGiJZmkNDRiREmkAOVaE
+vCCRrCRBTo+RXhB5gIgIQpJNBqxYFNlkU2M1FM0CDgscQ/EiSTEsA0mWkjg95CgN
+L/GAFDQQ6knVmGm2uh0qnICsOFI2qzP1Q7eM9z/6h9yA5ASahwhKCKl0LCsBLLG0
+REEVlKcZFmHEkJSEgARYCjGiQAIkICTxECJRIil2mdu+HMdoaI7laAZAFgOEeCQB
+QNMahkNYoliSdwutWDGhLKyqhRzFbFLstkwiN4JQxw5Zj93Nuld5IBGxAxv/W8ai
+mG1mvdmoTjNtNovWbbLlWNyqbCzoHvh1gmwS1Q5VgwMrVtlsIrSkqtTbZHcgSXOA
+YVUUKoLAb1pkBetkt4LhWAjUx30Mdrib53gAoUaCmON4CXGQEjgakDwUNTykJMhg
+XoMESW1HACzmVCXNkVDdk6XVXy66K7HiAyazmk2qnMigZlplgwnZ7Aomcttd6V4e
+nn4eK70fcV8uDz/ftQ+v3OPOgMWQwJO+F772MaxyZgTMPTMUvLYwezjhs8F+Zd3Z
++L6wnavTJoLqmUuDcvFAyHT+priz22adP7ZHfvfDRy0BX/UdDg7yySsuM5BbRx4b
+aT4fN1P4qSfFx/oauy9WPQcPzBUUnrr1dOSWxtiG0OFNFbw1MDyuZru9dF9VccqG
+ksE9pc7RT54/Upx4pWuS//DtSXkxP4ZwVC9MHUse7fQ48e5L1dqE5kal4wPvobAm
+459//WONTQoSByqmQ6NalKO76yZ3vdjdnXOK+3Xn6bC+e2tuz3/bkXIoY8f72b1t
+u+fvnXlWHon7JgscGTu36DtzXwx9fSz1y9ZSRbod3//9nbpD6UkT6faN12drXqu8
+OouP33lh140/fMglL/PNVx+dulLuX1MbXj3QHB31Mauf33d62Fm6oTw8+bzuycuV
+T5y8QBoTo/u19SF5Jy7FMEmJ7+BOr5qexL07wOb2yDTt+gLH9dQ1wWRX08rAWP+l
+bc4x5WJKa0fp5u0W5tgr584UVfxes9As5/SnVW1N7p8cWj/ZdO0LwRDx+VvjRT7j
+gdFvTLWVwITpnq6sBZcMjb8ttG2MTumdylgxtuDf6yxzpfhcu1nZ+ktt4ZwYlr/U
+whyv28K2/J1eNV5fMNpT2zXTkHU0yhxzo+jyusaQu3vKGl6ujc8aL9/rcvw0oY3I
+nZXnfl6VV1I8fv8WeO/uv35Hyjo=
+=+FAA
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/byronruth
+
+==================================================================
